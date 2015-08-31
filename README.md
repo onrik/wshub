@@ -1,5 +1,7 @@
 # Websockets hub for golang
 
+Broadcasting is a most popular case for websockets. Now you can implement it in 10 code lines.
+
 ```go
 package main
 
