@@ -82,14 +82,17 @@ func (conn *Connection) writePump() {
 	}
 }
 
+// Send message to connection
 func (conn *Connection) SendMessage(message []byte) {
 	conn.send <- message
 }
 
+// Incoming messages from connection
 func (conn *Connection) Messages() <-chan []byte {
 	return conn.receive
 }
 
+// Create new connection and start listen incoming messages
 func NewConnection(rw http.ResponseWriter, request *http.Request) (*Connection, error) {
 	socket, err := Upgrader.Upgrade(rw, request, nil)
 	if err != nil {
